@@ -15,12 +15,12 @@ npm install --save react-easy-heatmap
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-easy-heatmap'
+import Heatmap from 'react-easy-heatmap'
 import 'react-easy-heatmap/dist/index.css'
 
 class Example extends Component {
   render() {
-    return <MyComponent />
+    return <Heatmap />
   }
 }
 ```
