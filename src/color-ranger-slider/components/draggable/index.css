@@ -1,0 +1,6 @@
+.drag-item--wrapper {
+  width: 24px;
+  height: 4px;
+  margin-top: -4px;
+  cursor: pointer;
+}

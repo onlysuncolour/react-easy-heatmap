@@ -1,0 +1,134 @@
+.color-range-slider--wrapper {
+  position: absolute;
+  box-sizing: border-box;
+  width: 32px;
+  height: 200px;
+  padding: 4px;
+  overflow: hidden;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  box-shadow: 0 0 14px 0 #0a103205,0 4px 20px 0 #0a103208,0 8px 24px 0 #0a10320d;
+
+  &.color-range-slider--wrapper-moving {
+    border: 1px solid #1E76F0;
+    .drag-item--wrapper {
+      cursor: grabbing;
+    }
+  }
+
+  .drag-item--wrapper {
+    &:hover {
+      background-color: #1E76F0;
+    }
+
+    cursor: grab;
+  }
+
+  .operation--wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .heatmap-button-text {
+      margin-bottom: 4px;
+    }
+  }
+
+  .slider--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 96px;
+    margin-top: 6px;
+  }
+}
+
+.color-range-slider-setting-popver {
+  .ant-popover-inner-content {
+    padding: 4px;
+  }
+
+  .popver--wrapper {
+    color: #333;
+
+    .popver-item {
+      margin: 0 8px;
+      margin-bottom: 4px;
+
+      .item-title {
+        font: 400 12px/20px pingfang sc;
+      }
+
+      .progress--wrapper {
+        display: flex;
+        align-items: center;
+
+        .ant-slider.heatmap-slider {
+          margin-left: 0;
+          padding-left: 0;
+        }
+        .unit {
+          margin-left: 2px;
+          color: #7E7F80;
+        }
+      }
+    }
+  }
+}
+
+.custom-slider--wrapper {
+  width: 100px !important;
+  margin-right: 16px !important;
+
+  .rc-slider-handle-dragging {
+    box-shadow: none !important;
+  }
+}
+
+.custom-range-slider--wrapper {
+  .rc-slider-handle-dragging {
+    box-shadow: none !important;
+  }
+}
+
+.custom-theme-radio--wrapper {
+  margin-top: 9px;
+
+  .ant-radio-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ant-radio-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+    margin-bottom: 9px;
+    padding: 4px;
+    border: 1px solid #E3E4E5;
+    border-radius: 4px;
+
+    &:hover {
+      border-color: #3583EF;
+
+      .ant-radio-inner {
+        border-color: #3583EF;
+      }
+    }
+
+    &:has(.ant-radio-checked) {
+      border-color: #1E76F0;
+    }
+
+    .ant-radio {
+      top: 0;
+      order: 2;
+    }
+
+    > span:last-child {
+      padding-left: 0;
+    }
+  }
+}

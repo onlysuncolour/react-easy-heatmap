@@ -2,9 +2,10 @@
   "compilerOptions": {
     "outDir": "dist",
     "module": "esnext",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "esnext", "es2019", "es2020"],
     "moduleResolution": "node",
     "jsx": "react",
+    "target": "esnext",
     "sourceMap": true,
     "declaration": true,
     "esModuleInterop": true,
@@ -12,7 +13,6 @@
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true

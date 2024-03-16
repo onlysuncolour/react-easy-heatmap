@@ -1,0 +1,64 @@
+#heatmapContainerWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #F6F6F9;
+  border-radius: 4px;
+}
+
+.color-range-slider--wrapper {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 99;
+}
+
+/* #heatmapContainer { width:100%; height:100%;} */
+#heatmapLegend {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 10px;
+  background: #fff;
+}
+#min {
+  float: left;
+}
+#max {
+  float: right;
+}
+
+.heatmapContainer {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-radius: 4px;
+  transition: background-size 0.3s;
+}
+
+.heatmapContainer-moving {
+  cursor: grabbing;
+}
+
+.heatmapTooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+  padding: 8px 12px;
+  font: 400 14px/22px pingfang sc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 14px 0 #0a103205,0 4px 20px 0 #0a103208,0 8px 24px 0 #0a10320d;
+}
+
+.tooltip-title {
+  color: #333;
+}
+
+.tooltip-axis .axis {
+  color: #7E7F80;
+}
