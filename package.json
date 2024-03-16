@@ -1,10 +1,10 @@
 {
   "name": "react-easy-heatmap",
   "version": "1.0.0",
-  "description": "Made with create-react-library",
-  "author": "",
+  "description": "An easy heatmap component with React",
+  "author": "young.liu",
   "license": "MIT",
-  "repository": "/react-easy-heatmap",
+  "repository": "https://github.com/onlysuncolour/react-easy-heatmap",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -69,5 +69,11 @@
     "rc-input-number": "^9.0.0",
     "rc-slider": "^10.5.0",
     "rc-tooltip": "^6.2.0"
-  }
+  },
+  "keywords": [
+    "heatmap",
+    "react",
+    "reactjs",
+    "react-component"
+  ]
 }
