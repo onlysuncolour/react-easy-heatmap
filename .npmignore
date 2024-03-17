@@ -4,4 +4,3 @@ build/
 # npmignore
 !build/
 src/
-test/

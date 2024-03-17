@@ -1,5 +1,5 @@
-import isEmpty from './lodash/isEmpty';
-import isEqual from './lodash/isEqual';
+import isEmpty from './isEmpty';
+import isEqual from './isEqual';
 
 type TPoint = {
   x: number;

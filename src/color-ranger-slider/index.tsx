@@ -29,7 +29,7 @@ import { getGradientCfg, getSliderTrackImg } from './utils';
 import './index.less';
 import { THeatmapLocale } from '..';
 import Button from '../button';
-import throttle from '../utils/lodash/throttle';
+import throttle from '../utils/throttle';
 
 type ClorRangeSliderPropsType = {
   data: ColorCfgPropsType;

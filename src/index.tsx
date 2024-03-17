@@ -25,8 +25,8 @@ import {
 } from './utils';
 
 import getUuid from './utils/getUuid'
-import isEmpty from './utils/lodash/isEmpty';
-import isEqual from './utils/lodash/isEqual';
+import isEmpty from './utils/isEmpty';
+import isEqual from './utils/isEqual';
 
 type TPoint = {
   x: number;

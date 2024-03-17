@@ -15,9 +15,6 @@ import type { HandlesProps } from './Handles';
 import useDrag from './hooks/useDrag';
 import useOffset from './hooks/useOffset';
 import type { AriaValueFormat, Direction, OnStartMove } from './interface';
-import Marks from './Marks';
-import type { MarkObj } from './Marks';
-import type { InternalMarkObj } from './Marks';
 import Steps from './Steps';
 import Tracks from './Tracks';
 
@@ -25,7 +22,6 @@ import './index.less';
 
 /**
  * New:
- * - click mark to update range value
  * - handleRender
  * - Fix handle with count not correct
  * - Fix pushable not work in some case
@@ -82,8 +78,6 @@ export interface SliderProps<ValueType = number | number[]> {
   dotStyle?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
   activeDotStyle?: React.CSSProperties | ((dotValue: number) => React.CSSProperties);
 
-  // Decorations
-  marks?: Record<string | number, React.ReactNode | MarkObj>;
   dots?: boolean;
 
   // Components
@@ -189,41 +183,11 @@ const Slider = React.forwardRef((props: SliderProps, ref: React.Ref<SliderRef>) 
     return pushable >= 0 ? pushable : false;
   }, [pushable, mergedStep]);
 
-  // ============================ Marks =============================
-  const markList = React.useMemo<InternalMarkObj[]>(() => {
-    const keys = Object.keys(marks || {});
-
-    return keys
-      .map((key) => {
-        const mark = marks[key];
-        const markObj: InternalMarkObj = {
-          value: Number(key),
-        };
-
-        if (
-          mark &&
-          typeof mark === 'object' &&
-          !React.isValidElement(mark) &&
-          ('label' in mark || 'style' in mark)
-        ) {
-          markObj.style = mark.style;
-          markObj.label = mark.label;
-        } else {
-          markObj.label = mark as React.ReactNode;
-        }
-
-        return markObj;
-      })
-      .filter(({ label }) => label || typeof label === 'number')
-      .sort((a, b) => a.value - b.value);
-  }, [marks]);
-
   // ============================ Format ============================
   const [formatValue, offsetValues] = useOffset(
     mergedMin,
     mergedMax,
     mergedStep,
-    markList,
     allowCross,
     mergedPush,
   );
@@ -422,7 +386,7 @@ const Slider = React.forwardRef((props: SliderProps, ref: React.Ref<SliderRef>) 
   );
 
   // Provide a range values with included [min, max]
-  // Used for Track, Mark & Dot
+  // Used for Track & Dot
   const [includedStart, includedEnd] = React.useMemo(() => {
     if (!range) {
       return [mergedMin, sortedCacheValues[0]];
@@ -502,7 +466,6 @@ const Slider = React.forwardRef((props: SliderProps, ref: React.Ref<SliderRef>) 
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-vertical`]: vertical,
           [`${prefixCls}-horizontal`]: !vertical,
-          [`${prefixCls}-with-marks`]: markList.length,
         })}
         style={style}
         onMouseDown={onSliderMouseDown}
@@ -519,7 +482,6 @@ const Slider = React.forwardRef((props: SliderProps, ref: React.Ref<SliderRef>) 
 
         <Steps
           prefixCls={prefixCls}
-          marks={markList}
           dots={dots}
           style={dotStyle}
           activeStyle={activeDotStyle}
@@ -539,7 +501,6 @@ const Slider = React.forwardRef((props: SliderProps, ref: React.Ref<SliderRef>) 
           bestValues={bestValues}
         />
 
-        <Marks prefixCls={prefixCls} marks={markList} onClick={changeToCloseValue} />
       </div>
     </SliderContext.Provider>
   );

@@ -37,7 +37,6 @@ export default function useOffset(
   min: number,
   max: number,
   step: number,
-  markList: InternalMarkObj[],
   allowCross: boolean,
   pushable: false | number,
 ): [FormatValue, OffsetValues] {
@@ -74,7 +73,7 @@ export default function useOffset(
       const formatNextValue = formatRangeValue(val);
 
       // List align values
-      const alignValues = markList.map((mark) => mark.value);
+      const alignValues = []
       if (step !== null) {
         alignValues.push(formatStepValue(val));
       }
@@ -96,7 +95,7 @@ export default function useOffset(
 
       return closeValue;
     },
-    [min, max, markList, step, formatRangeValue, formatStepValue],
+    [min, max, step, formatRangeValue, formatStepValue],
   );
 
   // ========================== Offset ==========================
@@ -109,16 +108,12 @@ export default function useOffset(
       // Only used for `dist` mode
       const targetDistValue = originValue + offset;
 
-      // Compare next step value & mark value which is best match
+      // Compare next step value  value which is best match
       let potentialValues: number[] = [];
-      markList.forEach((mark) => {
-        potentialValues.push(mark.value);
-      });
 
       // Min & Max
       potentialValues.push(min, max);
 
-      // In case origin value is align with mark but not with step
       potentialValues.push(formatStepValue(originValue));
 
       // Put offset step value also
