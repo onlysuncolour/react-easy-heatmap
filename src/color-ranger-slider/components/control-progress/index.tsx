@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import Slider from 'rc-slider'
+import Slider from '../rc-slider'
 import InputNumber from 'rc-input-number'
 import React from 'react';
 

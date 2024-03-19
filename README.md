@@ -32,6 +32,7 @@ class Example extends Component {
 * Map dragging
 * Color configured
 * Data scaled by slider
+* Heat Point tooltip
 
 
 ## API
@@ -140,6 +141,13 @@ type THandleSyncActionProp = {
   }
 }
 ```
+
+## Todo
+* Button
+* More examples
+* Less size
+* radius auto-update based on scale/containerSize
+
 ## License
 
 MIT © [](https://github.com/)
