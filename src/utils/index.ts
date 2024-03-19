@@ -33,7 +33,7 @@ export function getUnfilledAxis(
   };
 }
 
-// 获得image在当前container下，不放大缩小的情况下，实际的宽高
+// 获得image在当前container下，不zoomOutzoomIn的情况下，实际的宽高
 export function getScale0Value(containerSize: TPoint, imageSize: TPoint) {
   const ratioW = imageSize.x / containerSize.x;
   const ratioH = imageSize.y / containerSize.y;

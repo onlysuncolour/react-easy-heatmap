@@ -72,7 +72,7 @@ const Draggable: FC<DraggablePropsType> = ({
         x: event.clientX,
         y: event.clientY,
       };
-      // 鼠标按下，监听鼠标位置，设置moveRef 移动
+      // 鼠标按下，监听鼠标位置，settingmoveRef 移动
       onMovingStart();
       window.addEventListener('mousemove', onMousemoveListener);
     };

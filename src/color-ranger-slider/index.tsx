@@ -116,7 +116,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
 
   const popverMenu = (
     <div className="popver--wrapper">
-      <PopverLayout title={localeMap?.['不透明度'] || '不透明度'}>
+      <PopverLayout title={localeMap?.['opacity'] || 'opacity'}>
         <ControlProgress
           min={MIN_OPACITY}
           max={MAX_OPACITY}
@@ -127,7 +127,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
           value={data.opacity || 100}
         />
       </PopverLayout>
-      <PopverLayout title={localeMap?.['半径'] || '半径'}>
+      <PopverLayout title={localeMap?.['radius'] || 'radius'}>
         <ControlProgress
           min={MIN_RADIUS}
           max={MAX_RADIUS}
@@ -137,7 +137,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
           value={data.radius || 20}
         />
       </PopverLayout>
-      <PopverLayout title={localeMap?.['配色方案'] || '配色方案'}>
+      <PopverLayout title={localeMap?.['colorTheme'] || 'colorTheme'}>
         {THEMES.map((theme, index) => (
           <ThemeRadio
             key={index}
@@ -163,7 +163,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
         triggerUpdateState={triggerUpdateState}
       />
       <div className="operation--wrapper">
-        <TooltipNode text={localeMap?.['还原'] || '还原'}>
+        <TooltipNode text={localeMap?.['reset'] || 'reset'}>
           <Button
             onClick={() => {
               setScale(1);
@@ -176,7 +176,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
           >revert</Button>
         </TooltipNode>
 
-        <TooltipNode text={localeMap?.['放大'] || '放大'}>
+        <TooltipNode text={localeMap?.['zoomOut'] || 'zoomOut'}>
           <Button
             disabled={scale === MAX_SCALE}
             onClick={() => {
@@ -187,7 +187,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
           // icon={<TaAdd1 />}
           >zoom out</Button>
         </TooltipNode>
-        <TooltipNode text={localeMap?.['缩小'] || '缩小'}>
+        <TooltipNode text={localeMap?.['zoomIn'] || 'zoomIn'}>
           <Button
             disabled={scale === MIN_SCALE}
             onClick={() => {
@@ -198,7 +198,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
           // icon={<TaSubtract />}
           >zoom in</Button>
         </TooltipNode>
-        <TooltipNode text={localeMap?.['设置'] || '设置'}>
+        <TooltipNode text={localeMap?.['setting'] || 'setting'}>
           <Tooltip
             // @ts-ignore
             className="color-range-slider-setting-popver"

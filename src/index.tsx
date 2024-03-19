@@ -39,13 +39,13 @@ type PointType = {
 };
 
 export type THeatmapLocale = {
-  不透明度?: string;
-  半径?: string;
-  配色方案?: string;
-  还原?: string;
-  放大?: string;
-  缩小?: string;
-  设置?: string;
+  opacity?: string;
+  radius?: string;
+  colorTheme?: string;
+  reset?: string;
+  zoomOut?: string;
+  zoomIn?: string;
+  setting?: string;
 }
 
 type Props = {
@@ -59,8 +59,8 @@ type Props = {
       p2: PointType;
     };
   };
-  sliderCfg?: ColorCfgPropsType;
-  onCfgChange?: (data: ColorCfgPropsType) => void;
+  heatmapConfig?: ColorCfgPropsType;
+  onConfigChange?: (data: ColorCfgPropsType) => void;
   onPostionChange?: (v: any) => void;
   localeMap?: THeatmapLocale
   documentResizeEventKey?: string
@@ -81,8 +81,8 @@ const HeatMap = forwardRef<RefProps, Props>(
       data,
       className,
       mapFile,
-      sliderCfg,
-      onCfgChange,
+      heatmapConfig,
+      onConfigChange,
       onPostionChange,
       localeMap,
       documentResizeEventKey,
@@ -264,14 +264,14 @@ const HeatMap = forwardRef<RefProps, Props>(
     const colorRangeLatest = useLatest(colorRange);
 
     useEffect(() => {
-      if (onCfgChange && !isEmpty(dataCfg)) {
-        onCfgChange(dataCfg);
+      if (onConfigChange && !isEmpty(dataCfg)) {
+        onConfigChange(dataCfg);
       }
     }, [dataCfg]);
 
     useEffect(() => {
-      if (onCfgChange) {
-        onCfgChange(dataCfg);
+      if (onConfigChange) {
+        onConfigChange(dataCfg);
       }
     }, [dataCfg]);
 
@@ -404,10 +404,10 @@ const HeatMap = forwardRef<RefProps, Props>(
     }, []);
 
     useEffect(() => {
-      if (!isEmpty(sliderCfg) && !!sliderCfg) {
-        setDataCfg(sliderCfg);
+      if (!isEmpty(heatmapConfig) && !!heatmapConfig) {
+        setDataCfg(heatmapConfig);
       }
-    }, [sliderCfg]);
+    }, [heatmapConfig]);
 
     useEffect(() => {
       setScale0Size(getScale0Value(getContainerSize(), imgSize));

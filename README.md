@@ -63,19 +63,19 @@ type TMapFile = {
 }
 ```
 
-### sliderCfg
+### heatmapConfig
 
 * optional
 
 ```typescript
-type TSliderCfg = {
+type TheatmapConfig = {
   opacity?: number; // default 100
   radius?: number; // heatmap data point radius, default to 20
   theme?: number; // default to 0
 }
 ```
 
-### onCfgChange
+### onConfigChange
 
 * optional
 
@@ -84,7 +84,7 @@ Function being called when slider config changed.
 Usually used to save slider config.
 
 ```typescript
-type TOnCfgChangeProp = TSliderCfg
+type TonConfigChangeProp = TheatmapConfig
 ```
 ### onPostionChange
 
@@ -107,15 +107,17 @@ type TOnPositionChangeProp = {
 
 * optional
 
+Used for i18n :)
+
 ```typescript
 type THeatmapLocale = {
-  不透明度?: string;
-  半径?: string;
-  配色方案?: string;
-  还原?: string;
-  放大?: string;
-  缩小?: string;
-  设置?: string;
+  opacity?: string;
+  radius?: string;
+  colorTheme?: string;
+  reset?: string;
+  zoomOut?: string;
+  zoomIn?: string;
+  setting?: string;
 }
 ```
 ### documentResizeEventKey
@@ -143,10 +145,17 @@ type THandleSyncActionProp = {
 ```
 
 ## Todo
-* Button
+* Button. Sorry for the bad-looking buttons. I will update them as soon as possible.
 * More examples
-* Less size
-* radius auto-update based on scale/containerSize
+* Less size. Because of the [heatmap.min.js](https://github.com/pa7/heatmap.js) and rc-slider, rc-tooltip, rc-checkbox, size looks a little large. will get rid of rc-components soom.
+* radius auto-update when scale/containerSize changes
+
+## Contact Me
+
+This is my first npm package :)
+
+
+Please raise issues in [github](https://github.com/onlysuncolour/react-easy-heatmap) or email me iyoungliu@163.com if you have any questions :)
 
 ## License
 
