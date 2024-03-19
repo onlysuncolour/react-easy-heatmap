@@ -147,7 +147,7 @@ type THandleSyncActionProp = {
 ## Todo
 * Button. Sorry for the bad-looking buttons. I will update them as soon as possible.
 * More examples
-* Less size. Because of the [heatmap.min.js](https://github.com/pa7/heatmap.js) and rc-slider, rc-tooltip, rc-checkbox, size looks a little large. will get rid of rc-components soom.
+* Less size. Because of the [heatmap.min.js](https://github.com/pa7/heatmap.js) and rc-slider, rc-tooltip, rc-checkbox, size looks a little large. will get rid of rc-components soon.
 * radius auto-update when scale/containerSize changes
 
 ## Contact Me
