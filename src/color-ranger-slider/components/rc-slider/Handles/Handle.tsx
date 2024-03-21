@@ -120,7 +120,7 @@ const Handle = React.forwardRef((props: HandleProps, ref: React.Ref<HTMLDivEleme
 
   // ============================ Render ============================
   let handleNode = (
-    <Tooltip overlay={tooltip} placement="left">
+    <Tooltip overlay={tooltip} placement="left" visible={tooltip ? undefined : false}>
       <div
         ref={ref}
         className={classNames(handlePrefixCls, {

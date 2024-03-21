@@ -9,7 +9,7 @@ import {
 } from 'react';
 
 import Tooltip from 'rc-tooltip';
-
+import 'rc-tooltip/assets/bootstrap_white.css'
 import ControlProgress from './components/control-progress';
 import Draggable from './components/draggable';
 import RcSlider from './components/rc-slider';
@@ -50,16 +50,6 @@ type ClorRangeSliderPropsType = {
   triggerUpdateState?: any;
   localeMap?: THeatmapLocale
 };
-
-type TTooltipNodeProps = {
-  text: string,
-  children?: any
-}
-const TooltipNode = ({ text, children }: TTooltipNodeProps) => (
-  <Tooltip placement="left" overlay={text}>
-    {children}
-  </Tooltip>
-);
 
 type TPopoverLayoutProps = {
   title: string,
@@ -167,58 +157,73 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
         triggerUpdateState={triggerUpdateState}
       />
       <div className="operation--wrapper">
-        <TooltipNode text={localeMap?.['reset'] || 'reset'}>
-          <Button
-            onClick={() => {
-              setScale(1);
-              setColorRange([0, 1]);
-            }}
+        <Tooltip overlay={localeMap?.['reset'] || 'reset'} placement="left" >
+          <div>
+            <Button
+              onClick={() => {
+                setScale(1);
+                setColorRange([0, 1]);
+              }}
+              // type="text"
+              // size="small"
+              disabled={scale === 1}
+            >
+              <IconRevert />
+            </Button>
+          </div>
+        </Tooltip>
+
+        <Tooltip overlay={localeMap?.['zoomOut'] || 'zoomOut'} placement="left" >
+          <div>
+            <Button
+              disabled={scale === MAX_SCALE}
+              onClick={() => {
+                setScale(scale + 1);
+              }}
             // type="text"
             // size="small"
-            disabled={scale === 1}
-          ><IconRevert /></Button>
-        </TooltipNode>
-
-        <TooltipNode text={localeMap?.['zoomOut'] || 'zoomOut'}>
-          <Button
-            disabled={scale === MAX_SCALE}
-            onClick={() => {
-              setScale(scale + 1);
-            }}
-          // type="text"
-          // size="small"
-          ><IconAdd /></Button>
-        </TooltipNode>
-        <TooltipNode text={localeMap?.['zoomIn'] || 'zoomIn'}>
-          <Button
-            disabled={scale === MIN_SCALE}
-            onClick={() => {
-              setScale(scale - 1);
-            }}
-          // type="text"
-          // size="small"
-          ><IconSubtract /></Button>
-        </TooltipNode>
-        <TooltipNode text={localeMap?.['setting'] || 'setting'}>
+            >
+              <IconAdd />
+            </Button>
+          </div>
+        </Tooltip>
+        <Tooltip overlay={localeMap?.['zoomIn'] || 'zoomIn'} placement="left">
+          <div>
+            <Button
+              disabled={scale === MIN_SCALE}
+              onClick={() => {
+                setScale(scale - 1);
+              }}
+            // type="text"
+            // size="small"
+            >
+              <IconSubtract />
+            </Button>
+          </div>
+        </Tooltip>
+        <Tooltip overlay={localeMap?.['setting'] || 'setting'} placement="left">
           <Tooltip
-            // @ts-ignore
-            className="color-range-slider-setting-popver"
-            open={settingVisible}
-            onOpenChange={onOpenChange}
+            // className="color-range-slider-setting-popver"
+            visible={settingVisible}
+            onVisibleChange={onOpenChange}
             trigger={'click'}
-            content={popverMenu}
+            overlay={popverMenu}
             placement="leftTop"
             mouseEnterDelay={0.1}
             mouseLeaveDelay={0.1}
             showArrow={false}
           >
-            <Button
-              // type="text"
-              onClick={onOpenSettingPopver}
-            // size="small"
-            ><IconSetting /></Button>
+            <div>
+              <Button
+                // type="text"
+                onClick={onOpenSettingPopver}
+              // size="small"
+              >
+                <IconSetting />
+              </Button>
+            </div>
           </Tooltip>
-        </TooltipNode>
+        </Tooltip>
       </div>
       <div className="slider--wrapper">
         <RcSlider

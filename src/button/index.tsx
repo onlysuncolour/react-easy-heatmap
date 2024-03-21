@@ -12,7 +12,7 @@ const Button:FC<Props> = ({
 }) => {
   return <button
   disabled={disabled}
-  onClick={() => onClick}
+  onClick={onClick}
   >{children}</button>
 }
 

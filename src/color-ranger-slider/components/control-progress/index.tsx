@@ -26,6 +26,7 @@ const ControlProgress: FC<ControlProgressPropsItem> = ({
         max={max}
         value={value}
         onChange={onChange}
+        step={1}
       />
       <InputNumber
         min={min}
