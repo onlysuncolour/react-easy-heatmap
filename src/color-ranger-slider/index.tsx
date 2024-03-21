@@ -30,6 +30,10 @@ import './index.less';
 import { THeatmapLocale } from '..';
 import Button from '../button';
 import throttle from '../utils/throttle';
+import IconRevert from '../icons/icon-revert';
+import IconAdd from '../icons/icon-add';
+import IconSubtract from '../icons/icon-Subtract';
+import IconSetting from '../icons/icon-setting';
 
 type ClorRangeSliderPropsType = {
   data: ColorCfgPropsType;
@@ -172,8 +176,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
             // type="text"
             // size="small"
             disabled={scale === 1}
-          // icon={<TaRevert />}
-          >revert</Button>
+          ><IconRevert /></Button>
         </TooltipNode>
 
         <TooltipNode text={localeMap?.['zoomOut'] || 'zoomOut'}>
@@ -184,8 +187,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
             }}
           // type="text"
           // size="small"
-          // icon={<TaAdd1 />}
-          >zoom out</Button>
+          ><IconAdd /></Button>
         </TooltipNode>
         <TooltipNode text={localeMap?.['zoomIn'] || 'zoomIn'}>
           <Button
@@ -195,8 +197,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
             }}
           // type="text"
           // size="small"
-          // icon={<TaSubtract />}
-          >zoom in</Button>
+          ><IconSubtract /></Button>
         </TooltipNode>
         <TooltipNode text={localeMap?.['setting'] || 'setting'}>
           <Tooltip
@@ -215,8 +216,7 @@ const ColorRangeSlider: FC<ClorRangeSliderPropsType> = ({
               // type="text"
               onClick={onOpenSettingPopver}
             // size="small"
-            // icon={<TaSetting />}
-            >setting</Button>
+            ><IconSetting /></Button>
           </Tooltip>
         </TooltipNode>
       </div>
