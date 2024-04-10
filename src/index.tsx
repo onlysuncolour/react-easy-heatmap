@@ -250,7 +250,7 @@ const HeatMap = forwardRef<RefProps, Props>(
         scale0Size.y * 2 ** (scale - 1) >= containerSize.y
       ) {
         const size = `${2 ** (scale - 1) * 100}%`;
-        return `${size}`;
+        return `${scale0Size.bgSizePercent[0] === 0 ? 'auto' : size} ${scale0Size.bgSizePercent[1] === 0 ? 'auto' : size} `;
       }
       let getPercent = (v: number) => {
         return v === 0 ? 'auto' : 2 ** (scale - 1) * 100 + '%';
