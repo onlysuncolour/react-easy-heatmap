@@ -32,7 +32,7 @@ import Button from '../button';
 import throttle from '../utils/throttle';
 import IconRevert from '../icons/icon-revert';
 import IconAdd from '../icons/icon-add';
-import IconSubtract from '../icons/icon-Subtract';
+import IconSubtract from '../icons/icon-subtract';
 import IconSetting from '../icons/icon-setting';
 
 type ClorRangeSliderPropsType = {

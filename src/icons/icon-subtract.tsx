@@ -74,5 +74,4 @@ IconSubtract
   size: '1em'
 };
 
-export default IconSubtract
-  ;
+export default IconSubtract;

@@ -12,7 +12,10 @@ export const getGradientCfg = (index: number) => {
 
 // 画轨道背景图片
 export const getSliderTrackImg = (gradientCfg: Record<number, string>) => {
-  const legendCanvas = document.createElement('canvas');
+  if (typeof window == 'undefined') {
+    return undefined
+  }
+  const legendCanvas = document?.createElement?.('canvas');
   legendCanvas.width = 12;
   legendCanvas.height = 96;
   const legendCtx = legendCanvas.getContext('2d');
